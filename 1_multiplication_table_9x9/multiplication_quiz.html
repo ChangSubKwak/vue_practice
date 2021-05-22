@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>multiplication_quiz</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <div>{{first}} * {{second}} = ?</div>
+            <form v-on:submit="onSubmitForm">
+                <input type="number" ref="answer" v-model="value">
+                <button type="submit">Enter</button>
+                <div>test : {{value}}</div>
+            </form>
+            <div id="result">{{result}}</div>
+        </div>
+        <script>
+            const app = new Vue({
+                el: '#root',
+                data: {
+                    first: Math.ceil(Math.random() * 9),
+                    second: Math.ceil(Math.random() * 9),
+                    value:'',
+                    result:'',
+                },
+                methods: {
+                    onSubmitForm(e) {
+                        e.preventDefault();             // to prevent refreshing
+                        console.log(this);
+                        // console.log(data);           // error : data is undefined
+                        console.log(this.first, this.second, this.value);
+                        if (this.first * this.second === parseInt(this.value)) {
+                            this.result = '정답';
+                            this.first = Math.ceil(Math.random() * 9);
+                            this.second = Math.ceil(Math.random() * 9);
+                            // this.$refs.answer --> select element ref="answer"
+                            // this.$refs.answer.value = '444'    // don't do that because data display(view) and data(model) do not match.
+                            this.$refs.answer.focus();
+                        } else {
+                            this.result = '오답';
+                        }
+                        this.value = ''
+                    }
+                }
+            });
+
+        </script>
+    </body>
+</html>
