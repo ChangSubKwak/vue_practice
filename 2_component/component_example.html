@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>component_example</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <link-word start-word="파라다이스"></link-word>
+            <link-word start-word="바나나"></link-word>
+            <link-word start-word="사과"></link-word>
+        </div>
+    </body>
+    <script>
+        Vue.component('link-word', {            // global component
+            template:`
+                <div id="root">
+                    <div>{{word}}</div>
+                    <form v-on:submit="onSubmitForm">
+                        <input type="text" ref="answer" v-model="value">
+                        <button type="submit">Enter</button>
+                    </form>
+                    <div>{{result}}</div>
+                </div>
+            `,
+            props: ['start-word'],
+            data() {
+                return {
+                    word: this.startWord,
+                    value:'',
+                    result:''
+                };
+            },
+            methods: {
+                onSubmitForm(e) {
+                    e.preventDefault();
+                    if (this.word[this.word.length - 1] === this.value[0]) {
+                        this.result = '정답';
+                        this.word = this.value;
+                    } else {
+                        this.result = '오답';
+                    }
+                    this.value = '';
+                    this.$refs.answer.focus();
+                }
+            },
+        })
+    </script>
+
+    <script>
+        const app = new Vue({
+            el: '#root',
+        });
+    </script>
+</html>
