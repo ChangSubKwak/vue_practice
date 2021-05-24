@@ -1,0 +1,4 @@
+./3_webpack_example/node_module
+./3_webpack_example/dist
+./3_webpack_example/package-lock.json
+.vscode
