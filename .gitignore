@@ -1,4 +1,5 @@
-3_webpack_example/node_modules/*
-3_webpack_example/dist/*
-3_webpack_example/package-lock.json
+*/dist/*
+*/node_modules/*
+*/vue-router-app/*
+*/package-lock.json
 .vscode
