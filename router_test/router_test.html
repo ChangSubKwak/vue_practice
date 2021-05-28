@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>VueJs Instance</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  </head>
+  <body>
+    <div id = "app">
+      <h1>Routing Example</h1>
+      <p>
+        <router-link to = "/route1">Router Link 1</router-link>
+        <router-link to = "/route2">Router Link 2</router-link>
+      </p>
+      <router-view></router-view>
+    </div>
+    <script type = "text/javascript">
+      const Route1 = { template: '<div>This is router 10</div>' }
+      const Route2 = { template: '<div>This is router 20</div>' }
+      const routes = [
+        { path: '/route1', component: Route1 },     // path : 어디로 갈지 알려주는 경로, component : 실제 보여주는 내용을 담은 컴포넌트
+        { path: '/route2', component: Route2 }
+      ];
+      const router = new VueRouter({
+        routes // short for `routes: routes`
+      });
+      var vm = new Vue({
+        el: '#app',
+        router
+      });
+    </script>
+  </body>
+</html>
