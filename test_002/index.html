@@ -1,0 +1,28 @@
+<html>
+   <head>
+      <title>VueJs Instance</title>
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+   </head>
+   <body>
+      <div id = "app">
+         <p style = "font-size:25px;">Counter: {{ counter }}</p>
+         <button @click = "counter++" style = "font-size:25px;">Click Me</button>
+      </div>
+      <script type = "text/javascript">
+         var vm = new Vue({
+            el: '#app',
+            data: {
+               counter: 1
+            }
+         });
+         vm.$watch('counter', function(nval, oval) {
+            alert('Counter is incremented :' + oval + ' to ' + nval + '!');
+         });
+         setTimeout(
+            function(){
+               vm.counter = 20;
+            }, 2000
+         );
+      </script>
+   </body>
+</html>
