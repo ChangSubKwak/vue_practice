@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Loading Overlay</title>
+</head>
+
+<body class="bg-light">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-ui-preloader"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-ui-preloader/dist/loader.css">
+  <div id="app">
+  <loader object="#ff9633" color1="#ffffff" color2="#17fd3d" size="3" speed="5" bg="#343a40" objectbg="#999793" opacity="80" name="circular"></loader>
+  </div>
+  <script>
+    Vue.use(loader)
+
+    new Vue({
+      el: '#app',
+      components:{
+        loader:loader
+      }
+    })
+  </script>
+</body>
+
+</html>
