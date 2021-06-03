@@ -1,5 +1,8 @@
 {
-    "scripts": {
-      "test": "mocha"
-    }
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "oracledb": "^5.1.0"
   }
+}
