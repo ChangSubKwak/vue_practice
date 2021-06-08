@@ -29,9 +29,10 @@ module.exports = {
 		new VueLoaderPlugin(),      // module이 처리하면서 사용하는 도구
 	],
 	output: {
-		//filemane: '[name].js'
+		// filename: '[name].js',
 		filename: 'app.js',
 		//path: './dist',
 		path: path.join(__dirname, 'dist'),      // __dirname is current folder name
+		publicPath: '/dist',
 	},
 };
