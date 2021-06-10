@@ -1,10 +1,18 @@
 <template>
+<!-- 최상단의 태그즉 template태그 아래 template태그를 쓸 수 없음 -->
 <div>
 	<div id="screen" :class="state" @click="onClickScreen">{{message}}</div>
-		<div>
-			<div>평균 시간: {{ result.reduce((a, c) => a + c, 0) / result.length || 0 }} ms </div>
+		<!-- template를 쓰게 되면 위의 div태그와 아래의 div태그가 형제가 됨 -->
+		<template v-if="result.length">
+		<!-- <div v-show="result.length"> -->
+			<!-- v-show와 v-if의 차이를 알아야 함 -->
+			<!-- 계산작업은 tempplate에 하는 것을 지양해야함 computed에서 해야함 -->
+			<!-- 위의 message값만 변경되었는데 다시 실행될 경우 average값이 computed가 아니라면 캐싱되지 않고 다시 계산하게 됨 -->
+			<!-- <div>평균 시간: {{ result.reduce((a, c) => a + c, 0) / result.length || 0 }} ms </div> -->
+			<div>평균 시간: {{ average }} ms </div>
 			<button @click="onReset">리셋</button>
-		</div>
+		<!-- </div> -->
+		</template>
 	</div>
 </template>
 
@@ -21,6 +29,11 @@ export default {
 			message: '클릭해서 시작하세요!',			// --hot으로 감시해도 data값 변경은 실시간으로 반영되지 않음을 주의할 것
     };
   },
+	computed: {
+		average() {
+			return this.result.reduce((a, c) => a + c, 0) / this.result.length || 0;
+		}
+	},
   methods: {
 		onReset() {
 			this.result = [];
