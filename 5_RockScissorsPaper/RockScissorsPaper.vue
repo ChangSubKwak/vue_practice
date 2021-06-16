@@ -11,7 +11,7 @@
 			<button @click="onClickButton('보')">보</button>
 		</div>
 		<div>{{result}}</div>
-		<div>\현재 {{result}}점</div>
+		<div>현재 {{result}}점</div>
 	</div>
 </template>
 
