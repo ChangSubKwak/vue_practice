@@ -62,10 +62,28 @@ export default {
 				} else if (this.imgCoord === rspCoords.paper) {
 					this.imgCoord = rspCoords.rock;
 				}
-			}, 100);
+			}, 1000);
+		},
+		fetchItems() {
+			return new Promise(function(resolve, reject) {
+				setTimeout(function() {
+					reject(new Error("Request is failed"));
+
+					var items = [1, 2, 3];
+					resolve(items);
+				}, 100);
+			})
+			// .then(() => {
+			// 	console.log('fetchItems call success');
+			// })
+			.catch((err) => {
+				console.log('error message in catch', err);
+			});
 		},
 		async onClickButton(choice) {
 			// async를 붙이면 안에는 await가 항상 존재한다.
+			var resultItems = await this.fetchItems();
+			console.log('resultItems', resultItems);
 			
 			console.log('onClickButton(', choice, ')');
 			clearInterval(interval);
