@@ -64,7 +64,9 @@ export default {
 				}
 			}, 100);
 		},
-		onClickButton(choice) {
+		async onClickButton(choice) {
+			// async를 붙이면 안에는 await가 항상 존재한다.
+			
 			console.log('onClickButton(', choice, ')');
 			clearInterval(interval);
 			const myScore = scores[choice];
