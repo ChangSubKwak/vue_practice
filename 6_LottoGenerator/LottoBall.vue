@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: 'LottoBall',
+    //name: 'LottoBall',
     props: ['number'],          // props는 read-only 같은 개념
     data() {
       let background;
@@ -19,7 +19,7 @@
       // changeNumber() {      // 부모로부터 받은 number은 못바꿈, 금지되는 방법
       //   this.number = 5;
       // },
-    }
+    },
   }
 </script>
 
