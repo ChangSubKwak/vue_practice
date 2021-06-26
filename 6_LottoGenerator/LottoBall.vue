@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    //name: 'LottoBall',
+    name: 'LottoBall',
     props: ['number'],          // props는 read-only 같은 개념
     data() {
       let background;
