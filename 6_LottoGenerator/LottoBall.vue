@@ -1,5 +1,5 @@
 <template>
-  <div class="ball" :style="{ background }">{{ number }}</div>
+  <div class="ball" :style="{ background }">{{ numberData }}</div>
 </template>
 
 <script>
