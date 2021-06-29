@@ -108,6 +108,14 @@
         clearTimeout(t);
       })
     },
+
+    watch: {
+      winBalls(val, oldVal) {    // 감시를 원하는 변수를 함수로 만듬
+        if (val.length === 0) {
+          
+        }
+      }
+    }
   };
 </script>
 
