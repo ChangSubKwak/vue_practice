@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="ball" :style="{ background }">{{ numberData }}</div> -->
-    <div class="ball" :style="{ background }">{{ number }}</div>
+    <div class="ball" :style="styleObject">{{ number }}</div>
 </template>
 
 <script>
@@ -21,7 +21,7 @@
       };
     },
 
-    computed: {
+    computed: {                       // 기존 값을 기반으로 새로운 값을 계산 또는 도출할 때 사용함
       styleObject() {
         let background;
       
@@ -48,9 +48,9 @@
     },
 
     mounted() {
-      if (this.winBalls && this.winBalls.length == 3) {
-        this.changeFunc(this.winBalls, 2, 100);         // 이렇게 하면 부모의 값과 자식의 값이 일치하게 됨
-      }
+      // if (this.winBalls && this.winBalls.length == 3) {
+      //   this.changeFunc(this.winBalls, 2, 100);         // 이렇게 하면 부모의 값과 자식의 값이 일치하게 됨
+      // }
     },
     
     beforedDestory() {

@@ -74,10 +74,12 @@
         this.winBalls = [];
         this.bonus = null;
         this.redo = false;
-        this.showBalls();
+        // console.log('this.winBalls', this.winBalls);
+        // this.showBalls();        // watch에서 하면 제거 필요
       },
 
       showBalls() {
+        console.log('showBalls()');
         for (let i = 0 ; i < this.winNumbers.length -1; i++) {
           timeouts[i] = setTimeout(() => {
             this.winBalls.push(this.winNumbers[i]);
@@ -98,21 +100,29 @@
 
     mounted() {
       // this.practiceDeepCopy();
+      console.log('mounted');
       this.showBalls();
       // console.log('this.winBalls', this.winBalls);
       // console.log('this.winBalls[6]', this.winBalls[6]);
     },
     
     beforeDestory() {
-      timeouts.forEach((t) => {
+      timeouts.forEach((t) => {         // 메모리 누수 문제로 clearTimout 해주어야 함
         clearTimeout(t);
       })
     },
 
     watch: {
-      winBalls(val, oldVal) {    // 감시를 원하는 변수를 함수로 만듬
-        if (val.length === 0) {
-          
+      // winBalls(value, oldValue) {    // 감시를 원하는 변수를 함수로 만듬
+      // console.log(value, oldValue);
+      //   if (value.length === 0) {
+      //     this.showBalls();
+      //   }
+      // }
+      bonus(value, oldValue) {
+        console.log(value, oldValue);
+        if (value === null) {
+          this.showBalls();
         }
       }
     }
