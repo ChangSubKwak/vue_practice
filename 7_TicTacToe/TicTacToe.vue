@@ -1,29 +1,34 @@
 <template>
-  <table-component></table-component>
+  <table-component :table-data="tableData"/>
 </template>
 
 <script>
-  import TableComponent from './TableComponent';
+import TableComponent from './TableComponent';
 
-  export default {
-    components: {
-      TableComponent,
-    },
-    data() {
-      return {
-      };
-    },
+export default {
+  components: {
+    TableComponent,
+  },
+  data() {
+    return {
+      tableData: [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ],
+    };
+  },
 
-    computed: {
-    },
-    
-    methods: {
-    },
+  computed: {
+  },
+  
+  methods: {
+  },
 
-    mounted() {
-    },
-    
-  }
+  mounted() {
+  },
+  
+}
 </script>
 
 <style>
