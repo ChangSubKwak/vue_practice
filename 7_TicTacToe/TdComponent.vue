@@ -8,7 +8,7 @@ export default {
   props: {
     cellData: String,
     rowIndex: Number,
-    cellIndex: Array,
+    cellIndex: Number,
   }
 }
 
