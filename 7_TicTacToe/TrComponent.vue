@@ -5,13 +5,20 @@
 </template>
 
 <script>
-import TdComponent from './TdComponent';
+import TdComponent from "./TdComponent";
 
 export default {
   props: {
     rowData: Array,
     rowIndex: Number,
   },
+
+  data() {
+    return {
+      parent: "I'm your parent",
+    };
+  },
+
   components: {
     TdComponent,
   },

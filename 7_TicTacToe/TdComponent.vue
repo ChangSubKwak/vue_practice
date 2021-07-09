@@ -1,5 +1,5 @@
 <template>
-  <td></td>
+  <td @click="onClickTd">{{cellData}}</td>
 </template>
 
 <script>
@@ -9,6 +9,14 @@ export default {
     cellData: String,
     rowIndex: Number,
     cellIndex: Number,
+  },
+  methods: {
+    onClickTd() {
+      console.log(this.$root.$data);      // 최상위 컴포넌트 데이터에 접근 가능
+      console.log(this.$parent.$data);    // 부모 컴포넌트 데이터에 접근 가능
+                                          // 그럼 중간 컴포넌트 데이터에는 어떻게 접근 가능한가?
+      this.$root.$data.turn = this.$root.$data.turn === "O" ? "X" : "O";
+    }
   }
 }
 

@@ -1,5 +1,8 @@
 <template>
-  <table-component :table-data="tableData"/>
+  <div>
+    <table-component :table-data="tableData"/>
+    <div>{{turn}} is turn to attack</div>
+  </div>
 </template>
 
 <script>
@@ -16,6 +19,7 @@ export default {
         ['', '', ''],
         ['', '', ''],
       ],
+      turn: 'O',
     };
   },
 

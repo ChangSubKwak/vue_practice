@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TrComponent from './Tromponent';
+import TrComponent from './TrComponent';
 
 export default {
   props: {
@@ -21,4 +21,15 @@ export default {
 </script>
 
 <style>
+table {
+  /* border-collapse: collapse; */
+}
+
+td {
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
 </style>
