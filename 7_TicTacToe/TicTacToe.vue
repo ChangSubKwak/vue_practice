@@ -7,7 +7,7 @@
 
 <script>
 import TableComponent from './TableComponent';
-import Vue from 'vue';
+// import Vue from 'vue';
 
 export default {
   components: {
