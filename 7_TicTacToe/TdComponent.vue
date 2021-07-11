@@ -12,10 +12,13 @@ export default {
   },
   methods: {
     onClickTd() {
-      console.log(this.$root.$data);      // 최상위 컴포넌트 데이터에 접근 가능
+      let rootData = this.$root.$data;
+      console.log(rootData);      // 최상위 컴포넌트 데이터에 접근 가능
       console.log(this.$parent.$data);    // 부모 컴포넌트 데이터에 접근 가능
                                           // 그럼 중간 컴포넌트 데이터에는 어떻게 접근 가능한가?
-      this.$root.$data.turn = this.$root.$data.turn === "O" ? "X" : "O";
+      // this.$root.$data.tableData[this.rowIndex][this.celIndex] = this.$root.$data.turn;
+      this.$set(rootData.tableData[this.rowIndex], this.celIndex, rootData.turn);
+      rootData.turn = rootData.turn === "O" ? "X" : "O";
     }
   }
 }
